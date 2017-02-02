@@ -25,7 +25,7 @@ class Chef
       end
 
       def value(arg=nil)
-        set_or_return(:value, arg, kind_of: String)
+        set_or_return(:value, arg, kind_of: [String, Fixnum])
       end
     end
   end
