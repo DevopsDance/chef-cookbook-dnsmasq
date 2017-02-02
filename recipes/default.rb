@@ -44,6 +44,19 @@ systemd_service 'dnsmasq' do
   ]
 end
 
+dnsmasq_conf 'no-poll' do
+  action :create
+end
+
+dnsmasq_conf 'no-resolv' do
+  action :create
+end
+
+dnsmasq_conf 'server' do
+  value '8.8.8.8'
+  action :create
+end
+
 service 'dnsmasq' do
   action [
     :enable,

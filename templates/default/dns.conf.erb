@@ -1,3 +1,5 @@
+# This file is delivered by CHEF.
+#
 <% @params.each do |param| %>
-<%= param.param %>=<%= param.value %>
+<%= param.param %><% unless param.value.nil? %>=<%= param.value unless param.value.nil? %><% end %>
 <% end %>
