@@ -8,6 +8,7 @@ class Chef
 
         template '/etc/dnsmasq.d/dns.conf' do
           source 'dns.conf.erb'
+          cookbook 'dnsmasq'
           owner 'root'
           group 'root'
           mode '0644'

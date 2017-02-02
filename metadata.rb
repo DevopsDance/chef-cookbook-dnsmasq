@@ -3,7 +3,7 @@ maintainer 'DevopsDance'
 maintainer_email 'team@devops.dance'
 license 'All rights reserved'
 description 'Installs and configures DNSMasq'
-version '0.3.0'
+version '0.4.0'
 source_url 'https://github.com/DevopsDance/chef-cookbook-dnsmasq'
 issues_url 'https://github.com/DevopsDance/chef-cookbook-dnsmasq/issues'
 
