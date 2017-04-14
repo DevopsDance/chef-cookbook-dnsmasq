@@ -31,11 +31,6 @@ systemd_service 'dnsmasq' do
     exec_start_post '/etc/init.d/dnsmasq systemd-start-resolvconf'
     exec_stop '/etc/init.d/dnsmasq systemd-stop-resolvconf'
     exec_reload '/bin/kill -HUP $MAINPID'
-    private_tmp true
-    protect_system true
-    read_write_directories %w(
-      /var/run/dnsmasq
-    )
     restart 'always'
   end
   action [
