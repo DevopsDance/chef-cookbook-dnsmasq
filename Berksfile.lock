@@ -1,11 +1,11 @@
 DEPENDENCIES
-  dnsmasq
+  devopsdance-dnsmasq
     path: .
     metadata: true
 
 GRAPH
   apt (6.1.0)
-  dnsmasq (1.0.0)
+  devopsdance-dnsmasq (1.0.1)
     systemd (>= 0.0.0)
     ubuntu (>= 0.0.0)
   systemd (2.1.3)

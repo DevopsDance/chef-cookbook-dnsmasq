@@ -1,4 +1,4 @@
-name 'dnsmasq'
+name 'devopsdance-dnsmasq'
 maintainer 'DevopsDance'
 maintainer_email 'team@devops.dance'
 license 'All rights reserved'

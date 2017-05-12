@@ -13,4 +13,4 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[dnsmasq::_test]
+      - recipe[devopsdance-dnsmasq::_test]
