@@ -1,4 +1,12 @@
-include_recipe 'ubuntu'
+include_recipe 'chef-sugar'
+
+if ubuntu?
+  include_recipe 'ubuntu'
+elsif debian?
+  include_recipe 'debian'
+else
+  raise 'Unsupported platform'
+end
 
 package 'dnsmasq' do
   action :install
@@ -17,44 +25,6 @@ file '/etc/dnsmasq.conf' do
   action :create
 end
 
-systemd_service 'dnsmasq' do
-  description 'dnsmasq - A lightweight DHCP and caching DNS server'
-  after %w(network.target)
-  install do
-    wanted_by 'multi-user.target'
-  end
-  service do
-    type 'forking'
-    pid_file '/var/run/dnsmasq/dnsmasq.pid'
-    exec_start_pre '/usr/sbin/dnsmasq --test'
-    exec_start '/etc/init.d/dnsmasq systemd-exec'
-    exec_start_post '/etc/init.d/dnsmasq systemd-start-resolvconf'
-    exec_stop '/etc/init.d/dnsmasq systemd-stop-resolvconf'
-    exec_reload '/bin/kill -HUP $MAINPID'
-    restart 'always'
-  end
-  action [
-    :create,
-    :enable
-  ]
-end
-
-dnsmasq_conf 'no-poll' do
-  action :create
-end
-
-dnsmasq_conf 'no-resolv' do
-  action :create
-end
-
-dnsmasq_conf 'server' do
-  value '8.8.8.8'
-  action :create
-end
-
 service 'dnsmasq' do
-  action [
-    :enable,
-    :start
-  ]
+  action :start
 end

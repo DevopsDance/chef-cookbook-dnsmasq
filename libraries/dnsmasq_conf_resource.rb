@@ -3,12 +3,12 @@ class Chef
     class DnsmasqConf < Chef::Resource
       provides :dnsmasq_conf
 
-      def initialize(name, run_context=nil)
+      def initialize(name, run_context = nil)
         super
         @resource_name = :dnsmasq_conf
         @allowed_actions = [
           :create,
-          :delete
+          :delete,
         ]
         @action = :create
         @name = name
@@ -16,16 +16,16 @@ class Chef
         @value = nil
       end
 
-      def name(arg=nil)
+      def name(arg = nil)
         set_or_return(:name, arg, kind_of: String)
       end
 
-      def param(arg=nil)
+      def param(arg = nil)
         set_or_return(:param, arg, kind_of: String)
       end
 
-      def value(arg=nil)
-        set_or_return(:value, arg, kind_of: [String, Fixnum])
+      def value(arg = nil)
+        set_or_return(:value, arg, kind_of: [String, Integer])
       end
     end
   end
