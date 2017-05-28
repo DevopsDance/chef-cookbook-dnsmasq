@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/DevopsDance/chef-cookbook-dnsmasq.svg?style=svg)](https://circleci.com/gh/DevopsDance/chef-cookbook-dnsmasq)
+
 # chef-cookbook-dnsmasq
 
 Install and configure DNSmasq.
