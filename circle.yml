@@ -1,0 +1,17 @@
+---
+
+machine:
+  timezone: UTC
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - gem install bundler
+  bundler:
+    without:
+      - workstation
+
+test:
+  override:
+    - bundle exec rake

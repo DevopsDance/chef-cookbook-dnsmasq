@@ -1,6 +1,6 @@
 class Chef
   class Provider
-    class DnsmasqConf < Chef::Provider::LWRPBase
+    class DnsmasqConf < Chef::Provider::LWRPBase # ~FC057
       def apply_configuration
         params = run_context.resource_collection.select do |item|
           item.is_a? Chef::Resource::DnsmasqConf
