@@ -3,7 +3,7 @@ include_recipe 'chef-sugar'
 if ubuntu?
   include_recipe 'ubuntu'
 elsif debian?
-  include_recipe 'debian'
+  include_recipe 'apt'
 else
   raise 'Unsupported platform'
 end
