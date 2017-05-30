@@ -6,7 +6,7 @@ Install and configure DNSmasq.
 
 ## Requirements
 
-Chef `~> 12` is required.
+Chef `~> 12` or `~> 13` is required. Otherwise provision will fail.
 
 ## Recipes
 ### default
@@ -36,6 +36,6 @@ dnsmasq_conf 'dns-foward-max' do
 end
 
 dnsmasq_conf 'no-resolv' do
-    action :create
+    action :delete
 end
 ```
