@@ -1,28 +1,58 @@
 ---
 
 driver:
-  name: vagrant
+  name: dokken
+  chef_image: devopsdance/chef
+  privileged: true
+
+transport:
+  name: dokken
 
 provisioner:
-  name: chef_zero
-
-platforms:
-  - name: ubuntu-16.04
-  - name: ubuntu-15.04
-  - name: debian-8.7
-  - name: debian-8.6
+  name: dokken
 
 verifier:
   name: inspec
+
+platforms:
+  - name: ubuntu-16.04
+    driver:
+      image: ubuntu:16.04
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN apt-get update -y
+        - RUN apt-get install net-tools -y
+
+  - name: ubuntu-15.04
+    driver:
+      image: ubuntu:15.04
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN apt-get update -y
+        - RUN apt-get install net-tools -y
+  - name: debian-8.7
+    driver:
+      image: debian:8.7
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN apt-get update -y
+        - RUN apt-get install net-tools -y
+  - name: debian-8.6
+    driver:
+      image: debian:8.6
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN apt-get update -y
+        - RUN apt-get install net-tools -y
 
 suites:
   - name: default-12
     run_list:
       - recipe[devopsdance-dnsmasq::_test]
-    provisioner:
-      require_chef_omnibus: 12
+    driver:
+      chef_version: 12
   - name: default-13
     run_list:
       - recipe[devopsdance-dnsmasq::_test]
-    provisioner:
-      require_chef_omnibus: 13
+    driver:
+      chef_version: 13

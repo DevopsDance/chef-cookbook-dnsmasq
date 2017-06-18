@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'berkshelf'
-gem 'kitchen-vagrant'
+gem 'kitchen-dokken'
 gem 'kitchen-inspec'
 gem 'cookstyle'
 gem 'foodcritic'
