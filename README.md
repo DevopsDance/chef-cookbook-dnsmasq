@@ -1,4 +1,5 @@
-[![CircleCI](https://circleci.com/gh/DevopsDance/chef-cookbook-dnsmasq.svg?style=svg)](https://circleci.com/gh/DevopsDance/chef-cookbook-dnsmasq)
+[![Build
+Status](https://travis-ci.org/DevopsDance/chef-cookbook-dnsmasq.svg?branch=master)](https://travis-ci.org/DevopsDance/chef-cookbook-dnsmasq)
 
 # chef-cookbook-dnsmasq
 
