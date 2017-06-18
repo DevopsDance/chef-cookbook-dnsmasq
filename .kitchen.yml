@@ -17,33 +17,39 @@ verifier:
 platforms:
   - name: ubuntu-16.04
     driver:
-      image: ubuntu:16.04
-      pid_one_command: /bin/systemd
+      image: ubuntu:xenial
+      pid_one_command: /sbin/init
       intermediate_instructions:
         - RUN apt-get update -y
         - RUN apt-get install net-tools -y
+        - RUN rm -v /usr/sbin/policy-rc.d
 
-  - name: ubuntu-15.04
+  - name: ubuntu-14.04
     driver:
-      image: ubuntu:15.04
+      image: ubuntu:trusty
+      pid_one_command: /sbin/init
+      intermediate_instructions:
+        - RUN apt-get update -y
+        - RUN apt-get install net-tools systemd -y
+        - RUN rm -v /usr/sbin/policy-rc.d
+
+  - name: debian-9
+    driver:
+      image: debian:stretch
       pid_one_command: /bin/systemd
       intermediate_instructions:
         - RUN apt-get update -y
         - RUN apt-get install net-tools -y
-  - name: debian-8.7
+        - RUN rm -v /usr/sbin/policy-rc.d
+
+  - name: debian-8
     driver:
-      image: debian:8.7
+      image: debian:jessie
       pid_one_command: /bin/systemd
       intermediate_instructions:
         - RUN apt-get update -y
         - RUN apt-get install net-tools -y
-  - name: debian-8.6
-    driver:
-      image: debian:8.6
-      pid_one_command: /bin/systemd
-      intermediate_instructions:
-        - RUN apt-get update -y
-        - RUN apt-get install net-tools -y
+        - RUN rm -v /usr/sbin/policy-rc.d
 
 suites:
   - name: default-12
